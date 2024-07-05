@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+<style>
+    *{
+      font-family: "Roboto", sans-serif;
+    }
+    .dot{
+      transition: left .5s;
+    }
+    .slider{
+      width: 100%;
+      height: 40rem;
+      padding: 4px;
+      justify-content: center;
+    }
+    .slider::-webkit-scrollbar{
+      display: none;
+    }
+    .circle{
+      rotate: 90deg;
+      animation: example 1.5s linear infinite;
+    }
+    @keyframes example {
+    to {rotate: 360deg;} 
+    from{rotate: 0deg;}
+}
+  </style>
+  <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="root w-screen h-screen bg-zinc-950 flex flex-col">
+      <div value="upper" class="upper flex h-[44rem] bg-pink-500">
+        <div
+          class="left-div  w-[23rem] bg-zinc-900 flex items-center justify-center flex-col bg-zinc-50 p-2 flex gap-2 flex-col"
+        >
+          <!-- <div class="nav h-[7rem] bg-zinc-900 text-white rounded-lg"></div> -->
+          <!-- <div
+            class="nav-content h-[36rem] flex flex-col  bg-slate-400 rounded-lg "
+          >
+            <div class="library-nav  h-24 bg-zinc-900 rounded-t-lg"></div>
+            <div
+              class="library w-full flex-grow rounded-b-lg bg-zinc-900 "
+            ></div>
+          </div> -->
+          <div class="circle w-80 h-80 relative rounded-[50%] bg-zinc-50">
+            <i class="ri-music-fill absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] text-[10rem]"></i>
+            <!-- <div class="line w-2 h-40 rounded-md bg-zinc-900 absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%]"></div> -->
+          </div>
+
+        </div>
+        <div class="right-div bg-zinc-900 flex-grow pt-2 pr-2 pb-2">
+          <div
+            class="main-container relative flex flex-col gap-5 h-[100%]  bg-pink-500 rounded-lg "
+          >
+          
+            <div class="albums-container absolute w-[100%] h-[100%] bg-zinc-900 pl-2 pt-2">
+              <h3 class="pb-2  font-bold text-slate-50 text-2xl ">
+                Songs List
+              </h3>
+              <div 
+                class="slider text-slate-900 flex flex-wrap overflow-y-auto gap-2 bg-zinc-900 "
+              >d
+                <!-- <div
+                  key="{i}"
+                  class="card min-w-44 h-44 bg-slate-400 rounded-md"
+                >
+                  <img
+                    src="{album.images[0].url}"
+                    alt="images"
+                    class=" cursor-pointer rounded-md hover:opacity-85"
+                  />
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div value="bottom" class="audio-play  flex w-full flex-grow bg-orange-400">
+        <!-- <audio controls>
+          <source
+            src="https://www.youtube.com/watch?v=5BwXQKMBDbQ&list=RD5BwXQKMBDbQ&start_radio=1"
+            type="video/mp4"
+          />
+        </audio> -->
+        <div class="songInfoCard flex pl-2 items-center  bg-zinc-950 h-[100%] w-[23rem]">
+          <div class="songinfo flex gap-4">
+            <div class="songMinImgDiv w-16 h-16 cursor-pointer hover:opacity-80">
+              <img src="images/starboy.jpeg" class="songMinImg rounded-md" alt="">
+            </div>
+            <div class="artistname flex flex-col">
+              <span class="songName font-bold text-white ">Starboy</span>
+              <span class="artistName font-medium text-sm text-white">The Weekend</span>
+            </div>
+          </div>
+        </div>
+        <div class="controls-container flex flex-col flex-grow bg-zinc-900">
+          <div class="controls flex items-center relative justify-center pl-2 pr-2 bg-zinc-950">
+            <div class="control-buttons ">
+              <i class="ri-skip-left-fill text-3xl text-slate-300 cursor-pointer"></i>
+              <i class="play ri-play-fill text-2xl w-12 h-12 rounded-[50%] p-1 bg-zinc-200 cursor-pointer"></i>
+              <i class="ri-skip-right-fill text-3xl text-slate-300  cursor-pointer"></i>
+            </div>
+            <div class="songTiming absolute right-0 pr-2">
+              <span class="Timing-details" ></span>
+              <span class="current-time text-white">00:00</span>
+              <span class="duration text-white">/00:00</span>
+            </div>
+          </div>
+          <div class="seekbar-container flex flex-col justify-center pr-2 pl-2 flex-grow bg-zinc-950">
+              <div class="seekbar w-[98%] h-1 relative bg-zinc-300 cursor-pointer">
+                <div class="dot w-3 h-3 absolute bottom-[-3.5px] cursor-pointer left-0 rounded-md bg-zinc-500"></div>
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
